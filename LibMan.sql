@@ -20,7 +20,7 @@ GO
 --Create BOOK table
 CREATE TABLE BOOK
 	(
-		BookID int PRIMARY KEY,
+		BookID bigint PRIMARY KEY,
 		Title varchar(200) NOT NULL,
 		PublisherName varchar(50) NOT NULL
 	)
@@ -28,7 +28,7 @@ CREATE TABLE BOOK
 --Create BOOK_AUTHORS table
 CREATE TABLE BOOK_AUTHORS
 	(
-		BookID int PRIMARY KEY,
+		BookID bigint PRIMARY KEY,
 		AuthorName varchar(50) NOT NULL
 	)
 
@@ -43,7 +43,7 @@ CREATE TABLE PUBLISHER
 --Create BOOK_COPIES table
 CREATE TABLE BOOK_COPIES
 	(
-		BookID int PRIMARY KEY,
+		BookID bigint NOT NULL,
 		BranchID int NOT NULL,
 		No_Of_Copies int NOT NULL
 	)
@@ -51,7 +51,7 @@ CREATE TABLE BOOK_COPIES
 --Create BOOK_LOANS table
 CREATE TABLE BOOK_LOANS
 	(
-		BookID int PRIMARY KEY,
+		BookID bigint NOT NULL,
 		BranchID int NOT NULL,
 		CardNo int NOT NULL,
 		DateOut date NOT NULL,
