@@ -203,6 +203,7 @@ INSERT INTO BOOK_COPIES (BookID, BranchID, No_Of_Copies)
 		(6704793,1,8),
 		(29589,1,7),
 		(315425,2,14),
+		(25947300,2,18),
 		(198781,2,8),
 		(7094922,2,5),
 		(8088,2,4),
@@ -218,6 +219,7 @@ INSERT INTO BOOK_COPIES (BookID, BranchID, No_Of_Copies)
 		(2527900,3,4),
 		(2213661,3,8),
 		(29589,3,7),
+		(25947300,3,9),
 		(6704793,3,22),
 		(1044355,3,9),
 		(24800,3,6),
@@ -243,10 +245,12 @@ INSERT INTO BORROWER (CardNo, Name, [Address], Phone)
 		(4,'Christopher Faulkner','8812 6th Dr',NULL),
 		(5,'Mike Flores','480 Wilson St',NULL),
 		(6,'Kimberly Bembry','70 Country Club Dr',NULL),
-		(7,'Roberta Rojas','11 Old York Dr',NULL),
-		(8,'Filiberto Lewis','716 Lafayette Rd',NULL),
-		(9,'Debra Holland','646 Edgemont Dr',NULL),
-		(10,'Sandra Goble','8938 N Winchester St',NULL)
+		(7,'David Rock','645B Gregory Court',NULL),
+		(8,'Roberta Rojas','11 Old York Dr',NULL),
+		(9,'Filiberto Lewis','716 Lafayette Rd',NULL),
+		(10,'Debra Holland','646 Edgemont Dr',NULL),
+		(11,'Sandra Goble','8938 N Winchester St',NULL),
+		(12,'Mary Benner','9686 Foster St',NULL)
 
 --Populate BOOK_LOANS table
 INSERT INTO BOOK_LOANS (BookID, BranchID, CardNo, DateOut, DueDate)
@@ -301,6 +305,42 @@ INSERT INTO BOOK_LOANS (BookID, BranchID, CardNo, DateOut, DueDate)
 		(1918305,4,10,'2016-11-17','2016-12-01'),
 		(3828382,4,10,'2016-11-17','2016-12-01'),
 		(84699,4,10,'2016-11-17','2016-12-01')
+GO
+		
+/* Now I'm going to create some stored procedures */
+
+--Find Lost Tribe copies in Sharpstown Branch
+CREATE PROC uspGetLostTribeInSharpstown
+AS
+	SELECT b.BookID, b.Title, lb.BranchID, lb.BranchName, bc.No_Of_Copies
+		FROM BOOK_COPIES bc INNER JOIN LIBRARY_BRANCH lb
+			ON bc.BranchID = lb.BranchID
+		INNER JOIN BOOK b
+			ON bc.BookID = b.BookID
+		WHERE b.Title = 'The Lost Tribe' AND lb.BranchName = 'Sharpstown'
+GO
+		
+--Find Lost Tribe copies in all branches
+CREATE PROC uspGetLostTribe
+AS
+	SELECT b.BookID, b.Title, lb.BranchID, lb.BranchName, bc.No_Of_Copies
+		FROM BOOK_COPIES bc INNER JOIN LIBRARY_BRANCH lb
+			ON bc.BranchID = lb.BranchID
+		INNER JOIN BOOK b
+			ON bc.BookID = b.BookID
+		WHERE b.Title = 'The Lost Tribe'
+GO
+
+--Find all borrowers who do not have any books checked out
+CREATE PROC uspGetFreeBorrowers	
+AS	
+	SELECT b.cardno, b.name, b.[address]
+		FROM borrower b LEFT JOIN BOOK_LOANS bl
+			ON b.CardNo = bl.CardNo
+		WHERE bl.CardNo IS NULL
+GO
+		
+
 
 
 
