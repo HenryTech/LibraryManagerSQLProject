@@ -59,6 +59,7 @@ CREATE TABLE BOOK_LOANS
 	)
 
 --Create LIBRARY_BRANCH table
+CREATE TABLE LIBRARY_BRANCH
 	(
 		BranchID int PRIMARY KEY,
 		BranchName varchar(50) NOT NULL,
@@ -66,6 +67,7 @@ CREATE TABLE BOOK_LOANS
 	)
 
 --Create BORROWER table
+CREATE TABLE BORROWER
 	(
 		CardNo int PRIMARY KEY,
 		Name varchar(50) NOT NULL,
