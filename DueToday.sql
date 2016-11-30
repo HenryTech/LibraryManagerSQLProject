@@ -1,10 +1,10 @@
 DECLARE @Today DATE = CONVERT(date,SYSDATETIME())
--- SELECT @Today
-SELECT *
+--SELECT @Today
+SELECT book.title, b.name, b.[address]
 	FROM library_branch lb INNER JOIN book_loans bl
 		ON lb.branchid = bl.branchid
-/*	INNER JOIN book
+	INNER JOIN book
 		ON bl.bookid = book.bookid
 	INNER JOIN borrower b
-		ON bl.cardno = b.cardno */
-	WHERE lb.BranchName = 'Sharpstown' AND bl.DueDate = @Today
+		ON bl.cardno = b.cardno
+	WHERE lb.BranchName = 'Sharpstown' AND bl.DueDate = @today
