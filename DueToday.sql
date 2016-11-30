@@ -1,5 +1,4 @@
 DECLARE @Today DATE = CONVERT(date,SYSDATETIME())
---SELECT @Today
 SELECT book.title, b.name, b.[address]
 	FROM library_branch lb INNER JOIN book_loans bl
 		ON lb.branchid = bl.branchid
@@ -7,4 +6,4 @@ SELECT book.title, b.name, b.[address]
 		ON bl.bookid = book.bookid
 	INNER JOIN borrower b
 		ON bl.cardno = b.cardno
-	WHERE lb.BranchName = 'Sharpstown' AND bl.DueDate = @today
+	WHERE lb.BranchName = 'Sharpstown' AND bl.DueDate = @Today
