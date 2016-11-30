@@ -78,7 +78,7 @@ CREATE TABLE BORROWER
 /* Populate all tables */
 
 --Populate BOOK table
-INSERT INTO BOOK
+INSERT INTO BOOK (BookID, Title, PublisherName)
 	VALUES
 		(25947300,'The Lost Tribe','CreateSpace')
 		(10552338,'Reamde','William Morrow')
@@ -114,7 +114,7 @@ INSERT INTO BOOK
 		(995103,'The Gunslinger','Plume')
 
 --Populate BOOK_AUTHORS table
-INSERT INTO BOOK_AUTHORS
+INSERT INTO BOOK_AUTHORS (BookID, AuthorName)
 	VALUES
 		(10552338,'Neal Stephenson')
 		(315425,'Michael Pollan')
@@ -149,7 +149,7 @@ INSERT INTO BOOK_AUTHORS
 		(995103,'Stephen King')
 
 --Populate PUBLISHER table
-INSERT INTO PUBLISHER
+INSERT INTO PUBLISHER (Name, [Address], Phone)
 	VALUES
 		('William Morrow',NULL,NULL)
 		('Penguin Press',NULL,NULL)
@@ -180,7 +180,7 @@ INSERT INTO PUBLISHER
 		('Plume',NULL,NULL)
 
 --Populate LIBRARY_BRANCH table
-INSERT INTO LIBRARY_BRANCH
+INSERT INTO LIBRARY_BRANCH (BranchID, BranchName, [Address])
 	VALUES
 		(1,'Central',NULL)
 		(2,'Sharpstown',NULL)
@@ -188,7 +188,7 @@ INSERT INTO LIBRARY_BRANCH
 		(4,'Henry Park',NULL)
 
 --Populate BOOK_COPIES table
-INSERT INTO BOOK_COPIES
+INSERT INTO BOOK_COPIES (BookID, BranchID, No_Of_Copies)
 	VALUES
 		(10552338,1,14)
 		(5301125,1,8)
@@ -235,7 +235,7 @@ INSERT INTO BOOK_COPIES
 		(23965,4,8)
 
 --Populate BORROWER table
-INSERT INTO BORROWER
+INSERT INTO BORROWER (CardNo, Name, [Address], Phone)
 	VALUES
 		(1,'Kenneth Greene','515 S Washington Dr',NULL)
 		(2,'Judy Fallon','368 Baker Ave',NULL)
@@ -249,7 +249,7 @@ INSERT INTO BORROWER
 		(10,'Sandra Goble','8938 N Winchester St',NULL)
 
 --Populate BOOK_LOANS table
-INSERT INTO BOOK_LOANS
+INSERT INTO BOOK_LOANS (BookID, BranchID, CardNo, DateOut, DueDate)
 	VALUES
 		(263466,2,5,2016-11-17,2016-12-01)
 		(6422238,2,5,2016-11-17,2016-12-01)
