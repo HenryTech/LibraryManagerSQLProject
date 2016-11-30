@@ -191,6 +191,7 @@ INSERT INTO LIBRARY_BRANCH (BranchID, BranchName, [Address])
 INSERT INTO BOOK_COPIES (BookID, BranchID, No_Of_Copies)
 	VALUES
 		(10552338,1,14),
+		(995103,1,15),
 		(5301125,1,8),
 		(687619,1,22),
 		(1618,1,13),
@@ -304,7 +305,7 @@ INSERT INTO BOOK_LOANS (BookID, BranchID, CardNo, DateOut, DueDate)
 		(7155145,4,10,'2016-11-17','2016-12-01'),
 		(1918305,4,10,'2016-11-17','2016-12-01'),
 		(3828382,4,10,'2016-11-17','2016-12-01'),
-		(84699,4,10,'2016-11-17','2016-12-01')
+		(84699,4,10,'2016-11-17','2016-11-30')
 GO
 		
 /* Now I'm going to create some stored procedures */
