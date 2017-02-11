@@ -16,4 +16,4 @@ I have uploaded the sql file with my work.
 
 I got all seven queries to work. One of the lessons I learned from this drill is that you can get a query to work, but you may not get an answer returned if there is no data related to that query. During my development of the dataset, I missed one of the dates that I was supposed to add. The query worked, but there were no returns. It was not until after an instructor asked if I had the date in there that I realized the oversight. Once I changed one of the due dates in the library database, the query returned as expected. It was a powerful lesson that one can write working code, but that doesn't guarantee the expected outcome. I learned that I would have to inspect an issue with my code from many angles. 
 
-[Return to Portfolio]("https://github.com/HenryTech/Portfolio")
+[Return to Portfolio](https://github.com/HenryTech/Portfolio)
