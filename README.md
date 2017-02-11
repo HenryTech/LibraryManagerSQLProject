@@ -1,5 +1,5 @@
 ## SQL Library Manager Database
-***
+
 ### Objective
 
 I was assigned a final project in my SQL course with The Tech Academy to develop a community libary system. The exercise required that I develop a database with an established relationship chart showing the various tables.
